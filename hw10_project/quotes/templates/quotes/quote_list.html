@@ -1,0 +1,40 @@
+{% extends 'quotes/base.html' %}
+
+{% block title %}Quotes List{% endblock %}
+
+{% block content %}
+    <h1>Quotes</h1>
+    {% for quote in quotes %}
+        <div class="quote-box">
+            <p>"{{ quote.quote }}"</p>
+            <p><strong>Author:</strong> <a href="{% url 'author_detail' quote.author.id %}">{{ quote.author.fullname }}</a></p>
+            <p><strong>Tags:</strong>
+                {% for tag in quote.tags.all %}
+                    <span class="tag">{{ tag.name }}</span>
+                {% endfor %}
+            </p>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block extra_styles %}
+<style>
+    .quote-box {
+        border: 2px solid #ccc !important;
+        padding: 15px !important;
+        margin-bottom: 20px !important;
+        border-radius: 5px !important;
+        background-color: #f9f9f9 !important;
+    }
+    .quote-box p {
+        margin: 5px 0 !important;
+    }
+    .quote-box .tag {
+        display: inline-block !important;
+        background-color: #e2e2e2 !important;
+        border-radius: 3px !important;
+        padding: 2px 5px !important;
+        margin-right: 5px !important;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'quotes/base.html' %}
+
+{% block title %}Quotes List{% endblock %}
+
+{% block content %}
+    <h2>{{ author.fullname }}</h2>
+    <p>Born date: {{ author.born_date }}</p>
+    <p>Born location: {{ author.born_location }} </p>
+    <p>Biography: {{ author.description }}</p>
+    <h3>Quotes of this author:</h3>
+    <ul>
+        {% for quote in author.quote.all %}
+            <li>{{ quote.quote }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'quote_list' %}">Back to list of quotes</a>
+{% endblock %}

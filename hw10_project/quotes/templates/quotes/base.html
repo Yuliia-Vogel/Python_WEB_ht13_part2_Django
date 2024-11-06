@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Quotes Site</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .sidebar {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 200px;
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            margin-bottom: 5px;
+            background-color: #f4f4f4;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .sidebar a:hover {
+            background-color: #ddd;
+        }
+        .content {
+            margin-right: 220px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        {% if user.is_authenticated %}
+            <p>Welcome, {{ user.username }}!</p>
+        {% else %}
+            <p>Read only mode.</p>
+        {% endif %}
+    </header>
+
+    <div class="sidebar">
+        {% if user.is_authenticated %}
+            <a href="{% url 'quote_list' %}">All quotes</a>
+            <a href="{% url 'add_author' %}">Add author</a>
+            <a href="{% url 'add_quote' %}">Add quote</a>
+            <a href="{% url 'users:logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'quote_list' %}">All quotes</a>    
+            <a href="{% url 'users:register' %}">Register</a>
+            <a href="{% url 'users:login' %}">Login</a>
+        {% endif %}
+    </div>
+
+    <div class="content">
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
+</html>

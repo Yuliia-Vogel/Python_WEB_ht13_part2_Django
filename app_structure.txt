@@ -1,0 +1,47 @@
+├── hw10_project
+|  ├─hw10_project
+│  |   ├── __init__.py
+│  |   ├── asgi.py
+│  |   ├── setings.py
+│  |   ├── urls.py
+│  |   └── wsgi.py
+│  ├── quotes
+│  |   ├── templates\quotes
+│  |   |   ├── add_author.html
+│  |   |   ├── add_quote.html
+│  |   |   ├── author_detail.html
+│  |   |   ├── base.html 
+│  |   |   ├── quote_list.html 
+│  |   |   └── quote_list1.html
+│  |   ├── __init__.py
+│  |   ├── admin.py
+│  |   ├── apps.py
+│  |   ├── forms.py
+│  |   ├── models.py
+│  |   ├── tests.py
+│  |   ├── urls.py
+│  |   └── views.py
+│  ├── users
+│  |   ├── templates\users
+│  |   |   ├── login.html
+│  |   |   ├── logout.html
+│  |   |   ├── password_reset_complete.html
+│  |   |   ├── password_reset_confirm.html
+│  |   |   ├── password_reset_done.html
+│  |   |   ├── password_reset_email.html
+│  |   |   ├── password_reset_subject.txt
+│  |   |   ├── password_reset.html
+│  |   |   └── register.html 
+│  |   ├── __init__.py
+│  |   ├── admin.py
+│  |   ├── apps.py
+│  |   ├── forms.py
+│  |   ├── models.py
+│  |   ├── tests.py
+│  |   ├── urls.py
+│  |   └── views.py
+│  ├── .env
+│  ├── .my_pgpass
+│  └── manage.py
+├── .env.example
+└── README.md
